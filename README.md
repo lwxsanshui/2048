@@ -7,4 +7,6 @@ PC端以键盘的方向键控制；
 移动端以手指滑动控制；
 
 
-[demo](http://liuwx.xyz/2048/2048/index.html)
+[游戏地址](http://liuwx.xyz/2048/2048/index.html)
+
+http://liuwx.xyz/2048/2048/index.html
