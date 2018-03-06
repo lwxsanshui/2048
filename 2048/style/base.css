@@ -13,7 +13,7 @@ header #newGameButton {
     padding: 10px;
     background: #8f5544;
     color: white;
-    border-radius: 10px;
+    border-radius: 30px;
     text-decoration: none;
 }
 header #newGameButton:hover {
