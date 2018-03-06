@@ -109,30 +109,88 @@ $(document).keydown(function(event){
    }
 });
 //移动端触摸滑动事件
-//var touchflag;
-$('body').on('swipeleft',function(){
-    if(moveLeft()){
-        generateNumber();
-        isGameOver();
-    }
+var touchflag_x;
+var touchflag_y;
+$(document).touchAction(function(event){
+
 });
-$('body').on('swiperight',function(){
-    if(moveRight()){
-        generateNumber();
-        isGameOver();
+$(document).addEventListener('touchStart',function(event){
+    if (event.targetTouches.length == 1) {
+        event.preventDefault();
+        var touch = event.targetTouches[0];
+        // 把元素放在手指所在的位置
+        touchflag_x = touch.pageX;
+        touchflag_y = touch.pageY;
     }
-});
-$('body').on('swipeup',function(){
-    if(moveUp()){
-        generateNumber();
-        isGameOver();
+},false);
+$(document).addEventListener('touchEnd',function(event){
+    if (event.targetTouches.length == 1) {
+        event.preventDefault();
+        var touch = event.targetTouches[0];
+        // 把元素放在手指所在的位置
+        var _x = touch.pageX-touchflag_x;
+        var _y = touch.pageY-touchflag_y;
+        if(_x<0){
+            var tempx = 0-_x;
+        }
+        if(_y<0){
+            var tempy = 0-_y;
+        }
+        if(tempx>tempy&&tempx>10){
+            if(_x<0){
+                if(moveLeft()){
+                    generateNumber();
+                    isGameOver();
+                }
+            }else{
+                if(moveRight()){
+                    generateNumber();
+                    isGameOver();
+                }
+            }
+        }else if(tempy>10){
+            if(_y<0){
+                if(moveUp()){
+                    generateNumber();
+                    isGameOver();
+                }
+            }else{
+                if(moveRight()){
+                    generateNumber();
+                    isGameOver();
+                }
+            }
+        }
+
+
+
+
     }
-});$('body').on('swipedown',function(){
-    if(moveDown()){
-        generateNumber();
-        isGameOver();
-    }
-});
+},false);
+
+//$('body').on('swipe',function(){
+//    if(moveLeft()){
+//        generateNumber();
+//        isGameOver();
+//    }
+//});
+//$('body').on('swiperight',function(){
+//    if(moveRight()){
+//        generateNumber();
+//        isGameOver();
+//    }
+//});
+//$('body').on('swipeup',function(){
+//    if(moveUp()){
+//        generateNumber();
+//        isGameOver();
+//    }
+//});$('body').on('swipedown',function(){
+//    if(moveDown()){
+//        generateNumber();
+//        isGameOver();
+//    }
+//});
 
 
 
