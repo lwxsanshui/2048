@@ -32,7 +32,6 @@ function init(){
 }
 function updateBoardView(){
     $(".number-cell").remove();
-    score = 0;
     for(var i=0 ; i<4 ;i++){
         for(var j=0 ; j<4 ;j++){
             $("#grid-container").append('<div class="number-cell" id="number-cell-'+i+'-'+j+'"></div>');
@@ -109,6 +108,35 @@ $(document).keydown(function(event){
            break;
    }
 });
+//移动端触摸滑动事件
+//var touchflag;
+$('body').on('swipeleft',function(){
+    if(moveLeft()){
+        generateNumber();
+        isGameOver();
+    }
+});
+$('body').on('swiperight',function(){
+    if(moveRight()){
+        generateNumber();
+        isGameOver();
+    }
+});
+$('body').on('swipeup',function(){
+    if(moveUp()){
+        generateNumber();
+        isGameOver();
+    }
+});$('body').on('swipedown',function(){
+    if(moveDown()){
+        generateNumber();
+        isGameOver();
+    }
+});
+
+
+
+
 function isGameOver(){
     if(nospace(board)&&nomove(board))
         alert("gameover");
@@ -141,6 +169,7 @@ function moveLeft(){
                         }else{
                             showMoveAnimation(i,j,i,k);
                             board[i][k] += board[i][j];
+                            score += board[i][k];
                             board[i][j] = 0;
                             k=-1;
                             hasMove = true;
@@ -187,6 +216,7 @@ function moveRight(){
                         }else{
                             showMoveAnimation(i,j,i,k);
                             board[i][k] += board[i][j];
+                            score += board[i][k];
                             board[i][j] = 0;
                             k=4;
                             hasMove = true;
@@ -233,6 +263,7 @@ function moveUp(){
                         }else{
                             showMoveAnimation(i,j,k,j);
                             board[k][j] += board[i][j];
+                            score += board[i][k];
                             board[i][j] = 0;
                             k=-1;
                             hasMove = true;
@@ -279,6 +310,7 @@ function moveDown(){
                         }else{
                             showMoveAnimation(i,j,k,j);
                             board[k][j] += board[i][j];
+                            score += board[i][k];
                             board[i][j] = 0;
                             k=4;
                             hasMove = true;
