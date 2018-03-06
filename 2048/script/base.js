@@ -82,6 +82,7 @@ function generateNumber(){
 }
 $("#newGameButton").click(newgame);
 $(document).keydown(function(event){
+    event.preventDefault();
    switch (event.keyCode){
        case 37://left
            if(moveLeft()){
