@@ -109,32 +109,33 @@ $(document).keydown(function(event){
    }
 });
 //移动端触摸滑动事件
-var touchflag_x;
-var touchflag_y;
-$(document).touchAction(function(event){
-
+var obj = document.getElementsByTagName('body')[0];
+var touchx;
+var touchy;
+obj.addEventListener('touchstart',function(event){
+    var touch = event.targetTouches[0];
+    event.preventDefault();
+        touchx = touch.pageX;
+        touchy = touch.pageY;
 });
-$(document).addEventListener('touchStart',function(event){
-    if (event.targetTouches.length == 1) {
+
+obj.addEventListener('touchend',function(event){
+
+        var touch = event.changedTouches[0];
         event.preventDefault();
-        var touch = event.targetTouches[0];
-        // 把元素放在手指所在的位置
-        touchflag_x = touch.pageX;
-        touchflag_y = touch.pageY;
-    }
-},false);
-$(document).addEventListener('touchEnd',function(event){
-    if (event.targetTouches.length == 1) {
-        event.preventDefault();
-        var touch = event.targetTouches[0];
-        // 把元素放在手指所在的位置
-        var _x = touch.pageX-touchflag_x;
-        var _y = touch.pageY-touchflag_y;
+        var _x = touch.pageX-touchx;
+        var _y = touch.pageY-touchy;
+        var tempx;
+        var tempy;
         if(_x<0){
-            var tempx = 0-_x;
+             tempx = 0-_x;
+        }else{
+           tempx =_x;
         }
         if(_y<0){
-            var tempy = 0-_y;
+            tempy = 0-_y;
+        }else{
+            tempy = _y;
         }
         if(tempx>tempy&&tempx>10){
             if(_x<0){
@@ -155,17 +156,13 @@ $(document).addEventListener('touchEnd',function(event){
                     isGameOver();
                 }
             }else{
-                if(moveRight()){
+                if(moveDown()){
                     generateNumber();
                     isGameOver();
                 }
             }
         }
 
-
-
-
-    }
 },false);
 
 //$('body').on('swipe',function(){
