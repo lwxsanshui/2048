@@ -25,6 +25,7 @@ function getNumberBackgroundColor(number){
         case 1024:return "#003399";break;
         case 2048:return "#663300";break;
         case 4096:return "#000096";break;
+        case 520:return "#FFC0CB";break;
         return "#000000"
     }
 }
