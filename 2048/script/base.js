@@ -43,8 +43,8 @@ function updateBoardView(){
                 theNumberCell.css('left',getPosLeft(i,j));
             }else{
                 //score+=board[i][j];
-                theNumberCell.css('width','100px');
-                theNumberCell.css('height','100px');
+                theNumberCell.css('width','150px');
+                theNumberCell.css('height','150px');
                 theNumberCell.css('top',getPosTop(i,j));
                 theNumberCell.css('left',getPosLeft(i,j));
                 //设定背景色和数字颜色
@@ -52,10 +52,10 @@ function updateBoardView(){
                 theNumberCell.css('color',getNumberColor(board[i][j]));
                 theNumberCell.text(board[i][j]);
                 if(board[i][j]>100){
-                    theNumberCell.css('fontSize','43px');
+                    theNumberCell.css('fontSize','64px');
                 }
                 if(board[i][j]>1000){
-                    theNumberCell.css('fontSize','37px');
+                    theNumberCell.css('fontSize','55px');
                 }
             }
         }
