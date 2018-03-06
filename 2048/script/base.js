@@ -74,6 +74,7 @@ function generateNumber(){
         var randy = parseInt(Math.floor(Math.random()*4));
     }
     //随机取一个数字
+    //var randNumber = Math.random()<0.8?2:4;
     var randNumber = Math.random()<0.8?2:4;
     board[randx][randy] = randNumber;
     showNumberWithAnimation(randx,randy,randNumber);
@@ -194,6 +195,7 @@ obj.addEventListener('touchend',function(event){
 
 function isGameOver(){
     if(nospace(board)&&nomove(board))
+
     setTimeout("alert('gameover')",400);
 }
 function moveLeft(){
@@ -210,9 +212,20 @@ function moveLeft(){
                 //根据hasMove可以避免多次合并
                 for(var k=j-1 ; k>=0 ; k--){
                     console.log(i,j,k);
-                    if(board[i][k]!=0){
-                        if(board[i][k]!=board[i][j]||hasMove ==true){
-
+                    if(board[i][k]!=0){//找到第一个不为0的元素
+                        //这里是一个彩蛋
+                        if((board[i][k]==512&&board[i][j]==8)||(board[i][k]==8&&board[i][j]==512)){
+                            showMoveAnimation(i,j,i,k);
+                            board[i][k] += board[i][j];
+                            score += board[i][k];
+                            board[i][j] = 0;
+                            k=-1;
+                            hasMove = true;
+                            $("h1").html("恭喜你发现了彩蛋");
+                            $('#score-1').html("顺便说一句，我喜欢你//羞涩");
+                            $('#score-2').remove();
+                            $('#newGameButton').html("emmmm你想吃什么？我带你去啊");
+                        }else if(board[i][k]!=board[i][j]||hasMove ==true){
                             if(k+1<j){
                                 showMoveAnimation(i,j,i,k+1);
                                 board[i][k+1] =board[i][j];
@@ -258,7 +271,19 @@ function moveRight(){
                 for(var k=j+1 ; k<4 ; k++){
                     console.log(i,j,k);
                     if(board[i][k]!=0){
-                        if(board[i][k]!=board[i][j]||hasMove ==true){
+                        //彩蛋
+                        if((board[i][k]==512&&board[i][j]==8)||(board[i][k]==8&&board[i][j]==512)){
+                            showMoveAnimation(i,j,i,k);
+                            board[i][k] += board[i][j];
+                            score += board[i][k];
+                            board[i][j] = 0;
+                            k=4;
+                            hasMove = true;
+                            $("h1").html("恭喜你发现了彩蛋");
+                            $('#score-1').html("顺便说一句，我喜欢你//羞涩");
+                            $('#score-2').remove();
+                            $('#newGameButton').html("emmmm你想吃什么？我带你去啊");
+                        }else if(board[i][k]!=board[i][j]||hasMove ==true){
 
                             if(k-1>j){
                                 showMoveAnimation(i,j,i,k-1);
@@ -305,7 +330,20 @@ function moveUp(){
                 for(var k=i-1 ; k>=0 ; k--){
                     console.log(i,j,k);
                     if(board[k][j]!=0){
-                        if(board[k][j]!=board[i][j]||hasMove ==true){
+                        if((board[k][j]==512&&board[i][j]==8)||(board[k][j]==8&&board[i][j]==512)){
+                            showMoveAnimation(i,j,k,j);
+                            board[k][j] += board[i][j];
+                            score += board[k][j];
+                            board[i][j] = 0;
+                            k=-1;
+                            hasMove = true;
+                            $("h1").html("恭喜你发现了彩蛋");
+                            $('#score-1').html("顺便说一句，我喜欢你//羞涩");
+                            $('#score-2').remove();
+                            $('#newGameButton').html("emmmm你想吃什么？我带你去啊");
+
+                        }
+                        else if(board[k][j]!=board[i][j]||hasMove ==true){
 
                             if(k+1<i){
                                 showMoveAnimation(i,j,k+1,j);
@@ -352,7 +390,18 @@ function moveDown(){
                 for(var k=i+1 ; k<4 ; k++){
                     console.log(i,j,k);
                     if(board[k][j]!=0){
-                        if(board[k][j]!=board[i][j]||hasMove ==true){
+                        if((board[k][j]==512&&board[i][j]==8)||(board[k][j]==8&&board[i][j]==512)){
+                            showMoveAnimation(i,j,k,j);
+                            board[k][j] += board[i][j];
+                            score += board[k][j];
+                            board[i][j] = 0;
+                            k=4;
+                            hasMove = true;
+                            $("h1").html("恭喜你发现了彩蛋");
+                            $('#score-1').html("顺便说一句，我喜欢你//羞涩");
+                            $('#score-2').remove();
+                            $('#newGameButton').html("emmmm你想吃什么？我带你去啊");
+                        }else if(board[k][j]!=board[i][j]||hasMove ==true){
 
                             if(k-1>i){
                                 showMoveAnimation(i,j,k-1,j);
