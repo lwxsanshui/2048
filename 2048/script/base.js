@@ -194,7 +194,7 @@ obj.addEventListener('touchend',function(event){
 
 function isGameOver(){
     if(nospace(board)&&nomove(board))
-        alert("gameover");
+    setTimeout("alert('gameover')",400);
 }
 function moveLeft(){
     if(!canMoveLeft(board))return false;
