@@ -1,5 +1,5 @@
 /**
- * Created by wjj on 2018/3/2.
+ * Created by lwx on 2018/3/2.
  */
 
 var board = new Array();
@@ -42,7 +42,7 @@ function updateBoardView(){
                 theNumberCell.css('top',getPosTop(i,j));
                 theNumberCell.css('left',getPosLeft(i,j));
             }else{
-                score+=board[i][j];
+                //score+=board[i][j];
                 theNumberCell.css('width','100px');
                 theNumberCell.css('height','100px');
                 theNumberCell.css('top',getPosTop(i,j));
@@ -263,7 +263,7 @@ function moveUp(){
                         }else{
                             showMoveAnimation(i,j,k,j);
                             board[k][j] += board[i][j];
-                            score += board[i][k];
+                            score += board[k][j];
                             board[i][j] = 0;
                             k=-1;
                             hasMove = true;
@@ -310,7 +310,7 @@ function moveDown(){
                         }else{
                             showMoveAnimation(i,j,k,j);
                             board[k][j] += board[i][j];
-                            score += board[i][k];
+                            score += board[k][j];
                             board[i][j] = 0;
                             k=4;
                             hasMove = true;
