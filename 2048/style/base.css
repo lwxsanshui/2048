@@ -9,7 +9,6 @@ header h1 {
     font-weight: bold;
 }
 header #newGameButton {
-    widows: 100;
     padding: 10px;
     background: #8f5544;
     color: white;
@@ -49,4 +48,32 @@ header p {
     font-weight: bold;
     text-align: center;
     position: absolute;
+}
+#rule {
+    position: fixed;
+    width: 500px;
+    left: 50%;
+    margin-left: -250px ;
+    top:80px;
+    visibility: hidden;
+    /*visibility: visible;*/
+    font-size: 30px;
+    background-color: chocolate;
+    border: 10px solid brown;
+    border-radius: 10px;
+
+}
+#close-rule {
+    margin-left: 30px;
+    background-color: brown;
+    border: 4px solid brown;
+    border-radius: 4px;
+}
+#open-rule{
+    padding: 10px;
+    background: purple;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 45px;
 }
