@@ -216,7 +216,7 @@ function isGameOver(){
 }
 function moveLeft(){
     if(!canMoveLeft(board))return false;
-    console.log("可以移动，那就开始了");
+    //console.log("可以移动，那就开始了");
     //移动过程
     var hasMove = false;//标记当前行是否移动过；
     for(var i=0 ; i<4 ; i++){
@@ -227,7 +227,7 @@ function moveLeft(){
                 // 相等则合并，不相等则移动至该位置+1
                 //根据hasMove可以避免多次合并
                 for(var k=j-1 ; k>=0 ; k--){
-                    console.log(i,j,k);
+                    //console.log(i,j,k);
                     if(board[i][k]!=0){//找到第一个不为0的元素
                         //这里是一个彩蛋
                         if((board[i][k]==512&&board[i][j]==8)||(board[i][k]==8&&board[i][j]==512)){
@@ -275,7 +275,7 @@ function moveLeft(){
 }
 function moveRight(){
     if(!canMoveRight(board))return false;
-    console.log("可以移动，那就开始了");
+    //console.log("可以移动，那就开始了");
     //移动过程
     var hasMove = false;//标记当前行是否移动过；
     for(var i=0 ; i<4 ; i++){
@@ -286,7 +286,7 @@ function moveRight(){
                 // 相等则合并，不相等则移动至该位置+1
                 //根据hasMove可以避免多次合并
                 for(var k=j+1 ; k<4 ; k++){
-                    console.log(i,j,k);
+                    //console.log(i,j,k);
                     if(board[i][k]!=0){
                         //彩蛋
                         if((board[i][k]==512&&board[i][j]==8)||(board[i][k]==8&&board[i][j]==512)){
@@ -335,7 +335,7 @@ function moveRight(){
 }
 function moveUp(){
     if(!canMoveUp(board))return false;
-    console.log("可以移动，那就开始了");
+    //console.log("可以移动，那就开始了");
     //移动过程
     var hasMove = false;//标记当前行是否移动过；
     for(var j=0 ; j<4 ; j++){
@@ -346,7 +346,7 @@ function moveUp(){
                 // 相等则合并，不相等则移动至该位置+1
                 //根据hasMove可以避免多次合并
                 for(var k=i-1 ; k>=0 ; k--){
-                    console.log(i,j,k);
+                   // console.log(i,j,k);
                     if(board[k][j]!=0){
                         if((board[k][j]==512&&board[i][j]==8)||(board[k][j]==8&&board[i][j]==512)){
                             showMoveAnimation(i,j,k,j);
@@ -396,7 +396,7 @@ function moveUp(){
 }
 function moveDown(){
     if(!canMoveDown(board))return false;
-    console.log("可以移动，那就开始了");
+    //console.log("可以移动，那就开始了");
     //移动过程
     var hasMove = false;//标记当前行是否移动过；
     for(var j=0 ; j<4 ; j++){
@@ -407,7 +407,7 @@ function moveDown(){
                 // 相等则合并，不相等则移动至该位置+1
                 //根据hasMove可以避免多次合并
                 for(var k=i+1 ; k<4 ; k++){
-                    console.log(i,j,k);
+                   // console.log(i,j,k);
                     if(board[k][j]!=0){
                         if((board[k][j]==512&&board[i][j]==8)||(board[k][j]==8&&board[i][j]==512)){
                             showMoveAnimation(i,j,k,j);
