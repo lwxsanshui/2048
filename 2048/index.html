@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+<!--作者：刘文晓；联系方式：lwx_sanshui@163.com-->
+<!--github:https://github.com/lwxsanshui-->
 <head lang="en">
     <meta charset="UTF-8">
     <title>网页版2048</title>
@@ -9,9 +11,11 @@
 <header>
     <h1>2048</h1>
     <a href="#" id="newGameButton">新游戏</a>
+    <a href="#" id="open-rule">规则</a>
     <p><span id="score-1">分数:</span> <span id="score-2">0</span></p>
 </header>
 <div id="grid-container">
+
     <div class="grid-cell" id="grid-0-0"></div>
     <div class="grid-cell" id="grid-0-1"></div>
     <div class="grid-cell" id="grid-0-2"></div>
@@ -28,8 +32,17 @@
     <div class="grid-cell" id="grid-3-1"></div>
     <div class="grid-cell" id="grid-3-2"></div>
     <div class="grid-cell" id="grid-3-3"></div>
-</div>
 
+</div>
+<div id="rule">
+    <button id="close-rule">关闭</button>
+    <p>游戏规则：使用方向键上下左右（移动端使用手指滑屏）控制格子的移动方向，相同数字的格子会合并。每次合并会得到一定的分数！
+        <br/>
+        <br/>
+        <br/>
+    作者：liuwx
+    </p>
+</div>
 <script src="script/jquery.js"></script>
 <script src="script/support.js"></script>
 <script src="script/base.js"></script>
