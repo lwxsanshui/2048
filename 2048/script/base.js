@@ -1,5 +1,8 @@
 /**
  * Created by lwx on 2018/3/2.
+ * 作者：刘文晓
+ * 联系方式：lwx_sanshui@163.com
+ *github地址：https://github.com/lwxsanshui
  */
 
 var board = new Array();
@@ -74,35 +77,47 @@ function generateNumber(){
         var randy = parseInt(Math.floor(Math.random()*4));
     }
     //随机取一个数字
-    //var randNumber = Math.random()<0.8?2:4;
     var randNumber = Math.random()<0.8?2:4;
+    //var randNumber = Math.random()<0.8?8:8;
     board[randx][randy] = randNumber;
     showNumberWithAnimation(randx,randy,randNumber);
     return true;
 }
 $("#newGameButton").click(newgame);
+//打开规则
+$("#open-rule").click(function () {
+    $("#rule").css("visibility","visible");
+});
+//关闭规则
+$("#close-rule").click(function(){
+    $("#rule").css("visibility","hidden");
+});
 $(document).keydown(function(event){
-    event.preventDefault();
+
    switch (event.keyCode){
        case 37://left
+           event.preventDefault();
            if(moveLeft()){
                generateNumber();
                isGameOver();
            }
            break;
        case 38://up
+           event.preventDefault();
            if(moveUp()){
                generateNumber();
                isGameOver();
            }
            break;
        case 39://right
+           event.preventDefault();
            if(moveRight()){
                generateNumber();
                isGameOver();
            }
            break;
        case 40://down
+           event.preventDefault();
            if(moveDown()){
                generateNumber();
                isGameOver();
@@ -226,6 +241,7 @@ function moveLeft(){
                             $('#score-1').html("顺便说一句，我喜欢你//羞涩");
                             $('#score-2').remove();
                             $('#newGameButton').html("emmmm你想吃什么？我带你去啊");
+                            $("#open-rule").css("display","none");
                         }else if(board[i][k]!=board[i][j]||hasMove ==true){
                             if(k+1<j){
                                 showMoveAnimation(i,j,i,k+1);
@@ -284,6 +300,7 @@ function moveRight(){
                             $('#score-1').html("顺便说一句，我喜欢你//羞涩");
                             $('#score-2').remove();
                             $('#newGameButton').html("emmmm你想吃什么？我带你去啊");
+                            $("#open-rule").css("display","none");
                         }else if(board[i][k]!=board[i][j]||hasMove ==true){
 
                             if(k-1>j){
@@ -342,6 +359,7 @@ function moveUp(){
                             $('#score-1').html("顺便说一句，我喜欢你//羞涩");
                             $('#score-2').remove();
                             $('#newGameButton').html("emmmm你想吃什么？我带你去啊");
+                            $("#open-rule").css("display","none");
 
                         }
                         else if(board[k][j]!=board[i][j]||hasMove ==true){
@@ -402,6 +420,7 @@ function moveDown(){
                             $('#score-1').html("顺便说一句，我喜欢你//羞涩");
                             $('#score-2').remove();
                             $('#newGameButton').html("emmmm你想吃什么？我带你去啊");
+                            $("#open-rule").css("display","none");
                         }else if(board[k][j]!=board[i][j]||hasMove ==true){
 
                             if(k-1>i){
