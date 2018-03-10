@@ -55,10 +55,10 @@ function updateBoardView(){
                 theNumberCell.css('color',getNumberColor(board[i][j]));
                 theNumberCell.text(board[i][j]);
                 if(board[i][j]>100){
-                    theNumberCell.css('fontSize','64px');
+                    theNumberCell.css('fontSize','43px');
                 }
                 if(board[i][j]>1000){
-                    theNumberCell.css('fontSize','55px');
+                    theNumberCell.css('fontSize','37px');
                 }
             }
         }
