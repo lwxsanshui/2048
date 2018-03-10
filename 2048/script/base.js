@@ -46,8 +46,8 @@ function updateBoardView(){
                 theNumberCell.css('left',getPosLeft(i,j));
             }else{
                 //score+=board[i][j];
-                theNumberCell.css('width','150px');
-                theNumberCell.css('height','150px');
+                theNumberCell.css('width','100px');
+                theNumberCell.css('height','100px');
                 theNumberCell.css('top',getPosTop(i,j));
                 theNumberCell.css('left',getPosLeft(i,j));
                 //设定背景色和数字颜色
