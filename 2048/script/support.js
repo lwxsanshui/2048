@@ -9,10 +9,10 @@
 
 
 function getPosTop(i,j){
-    return 30+i*180;
+    return 20+i*120;
 }
 function getPosLeft(i,j){
-    return 30+j*180;
+    return 20+j*120;
 }
 function getNumberBackgroundColor(number){
     switch (number){
@@ -111,8 +111,8 @@ function showNumberWithAnimation(i,j,number){
     numberCell.css("color",getNumberColor(number));
     numberCell.text(number);
     numberCell.animate({
-        width:"150px",
-        height:"150px",
+        width:"100px",
+        height:"100px",
         top:getPosTop(i,j),
         left:getPosLeft(i,j)
     },50);
