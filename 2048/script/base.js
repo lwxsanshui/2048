@@ -237,10 +237,11 @@ function moveLeft(){
                             board[i][j] = 0;
                             k=-1;
                             hasMove = true;
-                            $("h1").html("恭喜你发现了彩蛋");
-                            $('#score-1').html("顺便说一句，我喜欢你//羞涩");
-                            $('#score-2').remove();
-                            $('#newGameButton').html("emmmm你想吃什么？我带你去啊");
+                            $("h1").html("啊啊啊啊啊ZZ");
+                            //$("h1").html("恭喜你发现了彩蛋");
+                            //$('#score-1').html("顺便说一句，我喜欢你//羞涩");
+                           // $('#score-2').remove();
+                           // $('#newGameButton').html("emmmm你想吃什么？我带你去啊");
                             $("#open-rule").css("display","none");
                         }else if(board[i][k]!=board[i][j]||hasMove ==true){
                             if(k+1<j){
